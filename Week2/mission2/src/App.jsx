@@ -7,8 +7,8 @@ function App() {
 
   return (
     <>
-      <img src='https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg'></img>
-      <div style={{ display: 'flex', gap: '15px', width: '100%', flexWrap: 'wrap', }}>
+      <img style={{ margin: '0 auto;'}} src='https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg'></img>
+      <div style={{ display: 'flex', gap: '15px', width: '100%', flexWrap: 'wrap', justifyContent: 'center'}}>
         {MOVIES.results.map((element, index) => {
           return (
             <div onMouseOver={()=>{setBut(index)}} style={{ position: 'relative' }}>

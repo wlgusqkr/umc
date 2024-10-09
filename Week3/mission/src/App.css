@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    color: white;
+}
+
+h3 {
+    margin: 0;
+}
