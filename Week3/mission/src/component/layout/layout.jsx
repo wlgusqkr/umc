@@ -1,6 +1,6 @@
 import Nav from "./nav";
 import SideBar from "./sidebar";
-import Main from "../page/main";
+import Main from "../../page/main";
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 
