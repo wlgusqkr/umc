@@ -50,7 +50,6 @@ const Card = styled.div`
   position: relative;
 `
 
-
 const Label = styled.div`
   position: absolute;
   top: 200px;
