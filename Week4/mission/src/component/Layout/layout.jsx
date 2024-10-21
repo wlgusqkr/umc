@@ -1,12 +1,12 @@
 import Nav from "./nav";
 import SideBar from "./sidebar";
-import Main from "./main";
+import Main from "../../page/main";
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 
 const Layout = () => {
     return (
-        <div style={{ display: 'flex', flexWrap: 'wrap'}}>
+        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
             <Nav />
             <Contents>
                 <SideBar />
