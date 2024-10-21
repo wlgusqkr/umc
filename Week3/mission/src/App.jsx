@@ -1,6 +1,6 @@
 import './App.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Layout from './layout/layout'
+import Layout from './component/layout/layout'
 import Login from './page/login'
 import SignUp from './page/signup'
 import Search from './page/search'

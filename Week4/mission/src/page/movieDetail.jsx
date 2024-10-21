@@ -10,9 +10,23 @@ const MovieDetail = () => {
   const { data: creditData, isLoading: isCreditLoading, isError: isCreditError } = useCustomFetch(creditUrl);
   const { data: detailData, isLoading: isDetailLoading, isError: isDetailError } = useCustomFetch(detailUrl);
   
+  if(isCreditLoading == true && isDetailLoading == true) {
+    return (
+      <div>
+        <h2>로딩중입니다.</h2>
+      </div>
+    )
+  }
+
+  if(isDetailError == true && isCreditError == true) {
+    return (
+      <div>
+        <h2>에러났습니다.</h2>
+      </div>
+    )
+  }
   return (
     <Container>
-
       <Wrapper>
         <Image src={`https://image.tmdb.org/t/p/w500/${detailData.data?.backdrop_path}`} alt=""></Image>
         <Label>
@@ -31,7 +45,7 @@ const MovieDetail = () => {
           {creditData.data?.cast.map((element, index) => {
             return (
               <div style={{ textAlign: "center" }}>
-              <Image src={`https://image.tmdb.org/t/p/w200/${element.profile_path}`} style={{  width: '150px', height: '150px', borderRadius: '80px', border: '2px solid white' }}></Image>
+              <Image src={`https://image.tmdb.org/t/p/w500/${element.profile_path}`} style={{  width: '150px', height: '150px', borderRadius: '80px', border: '2px solid white' }}></Image>
               <Text>{element.name}</Text>
               <Text>{element.original_name}</Text>
             </div>
@@ -39,7 +53,7 @@ const MovieDetail = () => {
 
           })}
           <div style={{ width: '150px', height: '150px', textAlign: "center" }}>
-            <Image src={`https://image.tmdb.org/t/p/w200/${creditData.data?.cast[0].profile_path}`} style={{ borderRadius: '80px', border: '2px solid white' }}></Image>
+            <Image src={`https://image.tmdb.org/t/p/w500/${creditData.data?.cast[0].profile_path}`} style={{ borderRadius: '80px', border: '2px solid white' }}></Image>
             <Text>{creditData.data?.cast[0].name}</Text>
             <Text>{creditData.data?.cast[0].original_name}</Text>
           </div>
