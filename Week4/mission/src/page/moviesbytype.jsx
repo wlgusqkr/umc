@@ -33,7 +33,7 @@ const MoviesByType = () => {
           movies.data?.results.map((element, index) => {
             return (
               <MovidCard key={index} onClick={() => { navigate(`/movies/detail/${element.id}`) }}>
-                <img src={`https://image.tmdb.org/t/p/w200${element.backdrop_path}`} style={{ width: '100%', height: '250px', borderRadius: '20px' }}></img>
+                <img src={`https://image.tmdb.org/t/p/w200${element.poster_path}`} style={{ width: '100%', height: '250px', borderRadius: '20px', objectFit: 'cover'}}></img>
                 <p style={{ margin: '0', fontWeight: '600', padding: '4px 2px', fontSize: '12px' }}>{element.title}</p>
                 <p style={{ margin: '0', fontSize: '12px', padding: '4px 0px' }}>{element.release_date}</p>
               </MovidCard>

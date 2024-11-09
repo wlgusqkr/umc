@@ -25,6 +25,7 @@ const MovieDetail = () => {
       </div>
     )
   }
+  
   return (
     <Container>
       <Wrapper>

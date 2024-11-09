@@ -2,17 +2,17 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom';
 const Nav = () => {
 
-    return (
-        <nav style={{padding: '16px', width: '100%', height: '70px', backgroundColor: '#212121', display: 'flex', justifyContent: 'space-between'}}>
-            <div style={{ display: 'flex', alignItems: 'center'}}>
-                <h2><Link to={"/"} style={{color: 'red'}}>YONGCHA</Link></h2>
-            </div>
-            <div style={{display: 'flex', gap: '20px', alignItems:'center'}}>
-                <Button color={'#212121'}><Link style={{ color: 'white'}} to={'/login'}>로그인</Link></Button>
-                <Button color={'#FF69B4'}><Link style={{ color: 'white'}} to={'/signup'}>회원가입</Link></Button>
-            </div>
-        </nav>
-    )
+  return (
+    <nav style={{ padding: '16px', width: '100%', height: '70px', backgroundColor: '#212121', display: 'flex', justifyContent: 'space-between' }}>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <h2><Link to={"/"} style={{ color: 'red' }}>YONGCHA</Link></h2>
+      </div>
+      <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+        <Button color={'#212121'}><Link style={{ color: 'white' }} to={'/login'}>로그인</Link></Button>
+        <Button color={'#FF69B4'}><Link style={{ color: 'white' }} to={'/signup'}>회원가입</Link></Button>
+      </div>
+    </nav>
+  )
 }
 
 export default Nav;
