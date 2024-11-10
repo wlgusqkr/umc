@@ -3,17 +3,24 @@ import SideBar from "./sidebar";
 import Main from "../../page/main";
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
+import UserInformationProvider from "./UserInformationProvider";
+
+// export const UserInformationContext = createContext();
 
 const Layout = () => {
+    // const [userInformation, setUserInformation] = useState();
+    // const Information = useContext(UserInformationContext)
     return (
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-            <Nav />
-            <Contents>
-                <SideBar />
-                <Container>
-                    <Outlet />
-                </Container>
-            </Contents>
+            <UserInformationProvider> 
+                <Nav />
+                <Contents>
+                    <SideBar />
+                    <Container>
+                        <Outlet />
+                    </Container>
+                </Contents>
+            </UserInformationProvider>
         </div>
     )
 }

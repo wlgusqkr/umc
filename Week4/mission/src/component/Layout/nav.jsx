@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom';
+import { UserInformationContext } from './UserInformationProvider';
+import { useContext } from 'react';
 const Nav = () => {
+  const { userInformation, setUserInformation, deleteUserInformation } = useContext(UserInformationContext);
+
 
   return (
     <nav style={{ padding: '16px', width: '100%', height: '70px', backgroundColor: '#212121', display: 'flex', justifyContent: 'space-between' }}>
@@ -8,8 +12,17 @@ const Nav = () => {
         <h2><Link to={"/"} style={{ color: 'red' }}>YONGCHA</Link></h2>
       </div>
       <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-        <Button color={'#212121'}><Link style={{ color: 'white' }} to={'/login'}>로그인</Link></Button>
-        <Button color={'#FF69B4'}><Link style={{ color: 'white' }} to={'/signup'}>회원가입</Link></Button>
+        { userInformation ? (
+          <>
+            <p style={{ color: 'white'}}>{userInformation?.split('@')[0]}님 반갑습니다.</p>
+            <Button color={'#212121'}><Link style={{ color: 'white' }} to={'/login'} onClick={()=>{deleteUserInformation()}}>로그아웃</Link></Button>
+          </>
+        ) : (
+          <>
+            <Button color={'#212121'}><Link style={{ color: 'white' }} to={'/login'}>로그인</Link></Button>
+            <Button color={'#FF69B4'}><Link style={{ color: 'white' }} to={'/signup'}>회원가입</Link></Button>
+          </>
+        )}
       </div>
     </nav>
   )
