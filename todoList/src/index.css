@@ -1,9 +1,11 @@
 .title {
   text-align: center;
 }
+
 body {
   background-color: aliceblue;
 }
+
 .main-box {
   background-color: lightcyan;
   border-radius: 10px;
@@ -31,6 +33,7 @@ body {
 .modify {
   width: 12%;
 }
+
 .delete {
   width: 12%;
 }
@@ -52,6 +55,7 @@ body {
 .customInput {
   width: 85%;
 }
+
 .modifyInput {
   width: 90%;
   height: 30px;

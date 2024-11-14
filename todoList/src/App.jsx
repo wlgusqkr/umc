@@ -9,9 +9,9 @@ function App() {
 
   return (
     <>
-      <h2 className='title' onClick={()=>{setDarkTheme({ color: 'white', backgroundColor: 'black', border: '1px solid gray' })}}>TodoList</h2>
+      <h2 className='title' onClick={() => { setDarkTheme({ color: 'white', backgroundColor: 'black', border: '1px solid gray' }) }}>TodoList</h2>
       <DarkContext.Provider value={darkTheme}>
-        <FirstContext.Provider value={{ TodoListArr, setTodoListArr}}>
+        <FirstContext.Provider value={{ TodoListArr, setTodoListArr }}>
           <SUBTITLE></SUBTITLE>
           <MAINCONTENTS></MAINCONTENTS>
         </FirstContext.Provider>
@@ -41,7 +41,7 @@ const SUBTITLE = () => {
   console.log(theme)
   const [count, setCount] = useState(1);
   const [inputText, setInputText] = useState();
-  
+
   const autoIncreaseCount = () => {
     setCount(prev => prev + 1);
     return count;
@@ -70,7 +70,7 @@ const SUBTITLE = () => {
 const MAINCONTENTS = () => {
 
   const { TodoListArr, setTodoListArr } = useContext(FirstContext)
-  
+
   const [isModify, setIsModify] = useState(0);
   const handleDelete = (deleteId) => {
     let filteredList = TodoListArr.filter((element) => {
@@ -103,29 +103,29 @@ const MAINCONTENTS = () => {
 
   return (
     <div className='main-box' >
-    {TodoListArr.map((element, index) => {
-      return (
-        <div className='contents' key={index}>
-          <div className='text'>
-            {isModify == element.id
-              ? <INPUT class1='modifyInput' value1={element.text} changeFunction={(e) => { handleUpdate(element.id, e) }} />
-              : <p>{element.text}</p>}
+      {TodoListArr.map((element, index) => {
+        return (
+          <div className='contents' key={index}>
+            <div className='text'>
+              {isModify == element.id
+                ? <INPUT class1='modifyInput' value1={element.text} changeFunction={(e) => { handleUpdate(element.id, e) }} />
+                : <p>{element.text}</p>}
+            </div>
+            <div className='delete'>
+              <BUTTON clickFunction={() => { handleDelete(element.id) }} title={'삭제하기🗑️'}></BUTTON>
+            </div>
+            <div className='modify'>
+              {
+                isModify == element.id
+                  ?
+                  <BUTTON clickFunction={() => { handleIsModify(0) }} title={'수정완료✏️'}></BUTTON>
+                  :
+                  <BUTTON clickFunction={() => { handleIsModify(element.id) }} title={'수정하기✏️'}></BUTTON>
+              }
+            </div>
           </div>
-          <div className='delete'>
-            <BUTTON clickFunction={() => { handleDelete(element.id) }} title={'삭제하기🗑️'}></BUTTON>
-          </div>
-          <div className='modify'>
-            {
-              isModify == element.id
-                ?
-                <BUTTON clickFunction={() => { handleIsModify(0) }} title={'수정완료✏️'}></BUTTON>
-                :
-                <BUTTON clickFunction={() => { handleIsModify(element.id) }} title={'수정하기✏️'}></BUTTON>
-            }
-          </div>
-        </div>
-      )
-    })}
-  </div>
+        )
+      })}
+    </div>
   )
 }
