@@ -1,24 +1,22 @@
-import { useState, useEffect } from "react";
-import axios from "axios"
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
-import { axiosInstance } from "../apis/axios-instance";
-import useCustomFetch from "../hooks/useCustomFetch";
+import useCustomQuery from "../hooks/useCustomQuery";
+import CardSkeletonList from "../component/Skeleton/card-skeleton-list";
 const MoviesByType = () => {
   const navigate = useNavigate();
   const params = useParams();
   const url = `/movie/${params.movieType}?language=ko-KR&page=1`
-  const { data: movies, isLoading, isError } = useCustomFetch(url);
-
-  if (isLoading == true) {
+  const { data: movies, isLoading, isError } = useCustomQuery(url, params.movieType);
+  console.log(movies);
+  if (isLoading === true) {
     return (
-      <div>
-        <h2>로딩중입니다..</h2>
-      </div>
+      <Container>
+        <CardSkeletonList number={20}/>
+      </Container>
     )
   }
 
-  if (isError == true) {
+  if (isError === true) {
     return (
       <div>
         <h2> 에러남</h2>
@@ -30,7 +28,7 @@ const MoviesByType = () => {
     <>
       <Container>
         {
-          movies.data?.results.map((element, index) => {
+          movies.data.results.map((element, index) => {
             return (
               <MovidCard key={index} onClick={() => { navigate(`/movies/detail/${element.id}`) }}>
                 <img src={`https://image.tmdb.org/t/p/w200${element.poster_path}`} style={{ width: '100%', height: '250px', borderRadius: '20px', objectFit: 'cover'}}></img>

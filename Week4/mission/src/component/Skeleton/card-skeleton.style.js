@@ -2,19 +2,19 @@ import styled, { keyframes } from "styled-components";
 
 const skeletion = keyframes`
     0% {
-        opacity: 1;
-    }
-    30% {
         opacity: 0.7;
     }
+    30% {
+        opacity: 0.6;
+    }
     50% {
-        opacity: 0.4;
+        opacity: 0.3;
     }
     80% {
-        opacity: 0.8;
+        opacity: 0.6;
     }
     100% {
-        opacity: 1;
+        opacity: 0.7;
     }
 `
 const Container = styled.div`

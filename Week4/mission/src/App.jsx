@@ -1,9 +1,5 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Nav from './component/Layout/nav'
 import Layout from './component/Layout/layout'
 import Login from './page/login'
 import SignUp from './page/signup'
@@ -24,45 +20,45 @@ function App() {
       children: [
         {
           path: 'movie',
-          element: <></>
-        }, 
+          element: <></>,
+        },
         {
           path: 'login',
-          element: <Login />
-        }, 
+          element: <Login />,
+        },
         {
           path: 'signup',
-          element: <SignUp />
-        }, 
+          element: <SignUp />,
+        },
         {
           path: 'search',
-          element: <Search />
-        }, 
+          element: <Search />,
+        },
         {
           path: 'movies',
-          element: <Movies />
+          element: <Movies />,
         },
         {
           path: 'movies/:movieType',
-          element: <MoviesByType />
+          element: <MoviesByType />,
         },
         {
           path: 'movies/detail/:movieId',
-          element: <MovieDetail />
-        }
-      ]
+          element: <MovieDetail />,
+        },
+      ],
     },
     {
       path: '/movies',
-      element : <></>
-    }
-  ])
+      element : <></>,
+    },
+  ],);
 
   return (
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router}/>
     </QueryClientProvider>
-  )
+  );
 }
 
-export default App
+export default App;

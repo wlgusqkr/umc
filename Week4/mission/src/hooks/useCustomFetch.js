@@ -6,15 +6,14 @@ const useCustomFetch = (url) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
         const response = await axiosInstance.get(url);
-        console.log('요청요청요청요청')
         setData(response)
       } catch (error) {
+        console.log(error)
         setIsError(true)
       } finally {
         setIsLoading(false);
