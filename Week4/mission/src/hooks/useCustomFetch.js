@@ -12,6 +12,7 @@ const useCustomFetch = (url) => {
       try {
         setIsLoading(true);
         const response = await axiosInstance.get(url);
+        console.log('요청요청요청요청')
         setData(response)
       } catch (error) {
         setIsError(true)
