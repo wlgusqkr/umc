@@ -8,8 +8,8 @@ const MovieDetail = () => {
   const creditUrl = `/movie/${params.movieId}/credits?language=ko-KR&page=1`;
   const detailUrl = `/movie/${params.movieId}?language=ko-KR`;
 
-  const { data: creditData, isLoading: isCreditLoading, isError: isCreditError } = useCustomQuery(creditUrl, 'credit');
-  const { data: detailData, isLoading: isDetailLoading, isError: isDetailError } = useCustomQuery(detailUrl, 'detail');
+  const { data: creditData, isLoading: isCreditLoading, isError: isCreditError } = useCustomQuery(creditUrl, `credit/${params.movieId}`);
+  const { data: detailData, isLoading: isDetailLoading, isError: isDetailError } = useCustomQuery(detailUrl, `detail/${params.movieId}`);
   // const { data: creditData, isLoading: isCreditLoading, isError: isCreditError } = useCustomFetch(creditUrl);
   // const { data: detailData, isLoading: isDetailLoading, isError: isDetailError } = useCustomFetch(detailUrl);
   if (isCreditLoading === true || isDetailLoading === true) {
