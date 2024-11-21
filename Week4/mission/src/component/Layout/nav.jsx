@@ -37,7 +37,7 @@ const Button = styled.button`
         box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
         position: relative;
     }
-    borderRadius: '10px',
+    border-radius: '10px',
     height: 30px;
     color: white;
     padding: 4px 8px; 

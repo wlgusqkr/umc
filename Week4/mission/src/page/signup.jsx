@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import { schema } from '../consts/schema';
+import { useMutation } from '@tanstack/react-query';
 const SignUp = () => {
   const navigate = useNavigate();
 
@@ -11,22 +12,29 @@ const SignUp = () => {
     resolver: yupResolver(schema)
   });
 
-  const onSubmit = async (data) => {
-    try {
-      const result = await axios.post(import.meta.env.VITE_SIGNUP_API_URL, data)
-      console.log(result);
-    } catch {
-      console.log('api에러')
+  const signUpMutation = useMutation({
+    mutationFn : async (data) => {
+      const response = await axios.post(import.meta.env.VITE_SIGNUP_API_URL, data);
+      console.log(response)
+      return response;
+    },
+    onSuccess : () => {
+      navigate('/login', { replace: true });
+    },
+    onError : () => {
+
+    },
+    onMutate : () => {
 
     }
-    navigate('/login', { replace: true });
-  }
+  })
+
 
   return (
     <MainBox>
       <div>
         <Title>회원가입</Title>
-        <form onSubmit={handleSubmit(onSubmit)} noValidate>
+        <form onSubmit={handleSubmit(signUpMutation.mutate)} noValidate>
           <Input placeholder={`이메일을 입력해주세요!`} type={'email'} {...register("email")} />
           <p style={{ color: 'red' }}>{errors.email?.message}</p>
           <Input placeholder={`비밀번호를 입력해주세요!`} type={'password'} {...register("password")} />
