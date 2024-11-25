@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@tanstack/react-query": "^5.61.3",
     "react-router-dom": "^6.28.0",
     "styled-components": "^6.1.13"
   }

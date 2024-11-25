@@ -142,7 +142,7 @@ const Main = () => {
                         <S.CheckBoxInput readOnly type='checkbox' checked={element.checked} name='check'></S.CheckBoxInput>
                       </S.CheckBoxInContentBox>
                       <S.TextBoxInContentBox>
-                        <p onClick={() => { navigate(`/detail/${element.id}`) }} style={{cursor : 'pointer'}}>{element.title}</p>
+                        <p onClick={() => { navigate(`/detail/${element.id}`) }} style={{ cursor: 'pointer' }}>{element.title}</p>
                         <p>{element.content}</p>
                       </S.TextBoxInContentBox>
                       <S.ButtonBoxInContentBox>
